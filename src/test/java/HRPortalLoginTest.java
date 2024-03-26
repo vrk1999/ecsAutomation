@@ -12,7 +12,7 @@ import java.util.List;
 public class HRPortalLoginTest {
     private WebDriver driver;
     private static final String EXCEL_PATH = "/Users/ramkoushikreddy/Downloads/testDataLogin.xlsx";
-    private static final String LOGIN_URL = "http://ecs.memss.co.uk";
+    public static final String LOGIN_URL = "http://ecs.memss.co.uk";
     private static final String EXPECTED_TITLE = "Dashboard | PixelsHR - All in One Cloud HR Software";
 
     @BeforeClass
@@ -50,7 +50,8 @@ public class HRPortalLoginTest {
         // Validate login by checking the page title
         if (driver.getTitle().equals(EXPECTED_TITLE)) {
             System.out.println("Login successful for user: " + username);
-
+            InviteemployeeTest inviteemployeeTest = new InviteemployeeTest(driver);
+            inviteemployeeTest.inviteemployee();
             // Perform Logout Operation
             performLogout();
 
